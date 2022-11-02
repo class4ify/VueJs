@@ -12,7 +12,7 @@
                             <div class="card-body" align="right">
                                 <h5 class="card-title">{{ product.title }}</h5>
                                 <p class="card-text">Harga Rp.{{ product.price }}</p>
-
+                                <!-- a -->
                                 <router-link class="btn btn-primary btn-sm rounded shadow"
                                     :to="{   name: 'editpage', params: {id: product.id} }">edit</router-link>&nbsp;
 

@@ -59,7 +59,7 @@ name: "NavBar"
     transition: top 0.3s;
     text-transform: uppercase;
     font-weight:600;
-    /* font-family: Arial, Helvetica, sans-serif; */
+    
 }
 
 .nav-link:hover::after {

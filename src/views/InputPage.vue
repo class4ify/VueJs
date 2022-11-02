@@ -69,7 +69,7 @@ export default {
             formData.append("title", this.products.title);
             formData.append("price", this.products.price);
             formData.append("image", this.image);
-
+// a
             console.log(formData);
 
             let url = "http://127.0.0.1:8000/api/crud";

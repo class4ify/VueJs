@@ -25,6 +25,6 @@
 .router-link-active {
     font-weight: bolder;
     font-size: larger;
-    /* font-style: italic; */
+    
 }
 </style>
