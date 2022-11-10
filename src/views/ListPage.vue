@@ -1,24 +1,21 @@
 <template>
     <div class="container">
-        <div class="mt-5 ">
-            <h2 class="text-center font-weight-normal " style="font-family: Arial, Helvetica, sans-serif;">List Product</h2>
-            <div class="mt-5 card-body ">
-                <div class="d-flex justify-content-center row">
-                    <div class="col-sm-3 card ml-4 mb-4 " v-for="(product) in products" :key="product.id">
+        <div class="mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-3 ml-4 mb-4" v-for="(product) in products" :key="product.id">
+                    <div class="card" style="width: 18rem">
                         <center>
-                            <img :src="`http://localhost:8000/storage/${product.image}`" height="200" class=""/>
+                            <img :src="`http://localhost:8000/storage/${product.image}`" height="200"
+                                class="card-img-top" />
                         </center>
-                        <div class="card-body mt-2 p-4">
-                            <div class="card-body" align="right">
-                                <h5 class="card-title">{{ product.title }}</h5>
-                                <p class="card-text">Harga Rp.{{ product.price }}</p>
-                                <!-- a -->
-                                <router-link class="btn btn-primary btn-sm rounded shadow"
-                                    :to="{   name: 'editpage', params: {id: product.id} }">edit</router-link>&nbsp;
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">Harga Rp.{{ product.price }}</p>
+                            <router-link class="btn btn-primary btn-sm rounded shadow"
+                                :to="{ name: 'editpage', params: { id: product.id } }">edit</router-link>&nbsp;
 
-                                <button class="btn btn-danger btn-sm rounded shadow"
-                                    @click.prevent="delProduct(product.id)">Delete</button>
-                            </div>
+                            <button class="btn btn-danger btn-sm rounded shadow"
+                                @click.prevent="delProduct(product.id)">Delete</button>
                         </div>
                     </div>
                 </div>
