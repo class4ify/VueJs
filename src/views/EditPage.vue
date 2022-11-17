@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="card mt-5 shadow mt-4">
+        <div class="card mt-5 mt-4">
             <div class="card-body mx-4">
                 <div class="row ">
                     <div class="col">
@@ -56,16 +56,16 @@ export default {
         async getProductById() {
             let url = `http://127.0.0.1:8000/api/crud/${this.$route.params.id}`;
             await axios.get(url).then(response => {
-                console.log(response);
+                // console.log(response);
                 this.products = response.data.data;
             })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(errorf);
                 });
         },
         imgupload(e) {
             this.image = e.target.files[0];
-            console.log(this.image);
+            // console.log(this.image);
 
             const fileName = e.target.files[0].name;
 
@@ -73,18 +73,18 @@ export default {
 
             let fileReader = new FileReader();
             fileReader.readAsDataURL(this.image);
-            fileReader.onload = e => {
+            fileReader.onloadend = e => {
                 this.preview = e.target.result;
-                console.log(this.preview);
+                // console.log(this.preview);
             }
         },
         async updateproduct() {
             let title = this.products.title;
             let price = this.products.price;
             let image = this.products.image;
-            console.log(title);
-            console.log(price);
-            console.log(image);
+            // console.log(title);
+            // console.log(price);
+            // console.log(image);
 
             axios.put(`http://127.0.0.1:8000/api/crud/${this.$route.params.id}`
                 , {
@@ -93,11 +93,11 @@ export default {
                     image: image,
                 })
                 .then((response) => {
-                    console.log(response);
-                    this.$router.push({ name: 'listpage' });
+                    // console.log(response);
+                    this.$router.push({ name: '' });
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                 });
 
         },
