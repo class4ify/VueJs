@@ -98,7 +98,7 @@ export default {
                 .post(url, formData)
                 .then((response) => {
                     if (response.data.success == true) {
-                        alert(response.data.message);
+                        // alert(response.data.message);
                         this.products.title = "";
                         this.products.price = "";
                         this.image = "";
@@ -108,7 +108,7 @@ export default {
                 })
                 .then((response) => {
                     console.log(response);
-                    this.$router.push({ name: 'listpage' });
+                    this.$router.push({ name: 'inputpage' });
                 })
                 .catch((error) => {
                     console.log(error);

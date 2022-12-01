@@ -105,7 +105,7 @@ export default {
                     title: title,
                     price: price,
                     image: image,
-                    category: category,
+                    category_id: category,
                 })
                 .then((response) => {
                     // console.log(response);

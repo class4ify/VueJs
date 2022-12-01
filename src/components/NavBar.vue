@@ -2,14 +2,15 @@
     <html lang="en">
 
     <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-            crossorigin="anonymous" />
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+
     </head>
 
     <body>
@@ -26,16 +27,28 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ml-auto">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <router-link class="nav-link" to="/">Home</router-link>
-                                </li>
-                                <li class="nav-item">
-                                    <router-link class="nav-link" to="/list">List Product</router-link>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <router-link class="nav-link" to="/">Home</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link class="nav-link" to="/list">List Product</router-link>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Add
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><router-link class="dropdown-item" to="/add">Tambah Produk</router-link></li>
+                                    <li><router-link class="dropdown-item" to="/addC">Tambah Kategori</router-link></li>
+                          
+                                </ul>
+                            </li>
+                        </ul>
+
+
+
                     </div>
                 </div>
             </nav>
@@ -57,8 +70,12 @@ html {
     padding: 0;
     scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     /* border: 5px solid black; */
+}
+
+.navbar-nav {
+    margin-left: auto;
 }
 
 #nav-scroll {
@@ -75,11 +92,11 @@ html {
 
 }
 
-.nav-link:hover::after {
-    content: "";
-    display: block;
+.nav-link:hover {
+    /* content: ""; */
+    /* display: block; */
     border-bottom: 3px solid gray;
-    width: 50%;
+    width: 100%;
     margin: auto;
     padding-bottom: 5px;
     margin-bottom: -8px;

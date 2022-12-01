@@ -19,10 +19,10 @@
                         <div class="card-body ">
                             <h5 class="card-title ">{{ product.title }}</h5>
                             <p class="card-text">Harga Rp.{{ product.price }}</p>
-                            <router-link class="btn btn-primary btn-sm rounded shadow"
+                            <router-link class="btn btn-outline-primary btn-sm rounded "
                                 :to="{ name: 'editpage', params: { id: product.id } }">Edit</router-link>&nbsp;
 
-                            <button class="btn btn-danger btn-sm rounded shadow"
+                            <button class="btn btn-outline-danger btn-sm rounded "
                                 @click.prevent="delProduct(product.id)">Delete</button>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ export default {
                 .delete(url)
                 .then((response) => {
                     if (response.data.code == 200) {
-                        alert(response.data.message);
+                        // alert(response.data.message);
                         this.getProduct();
                     }
                 })

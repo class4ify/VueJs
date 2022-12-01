@@ -24,10 +24,11 @@
                                 <label class="col-sm-2 col-form-label">Kategori</label>
                                 <input type="text" list="programmingLanguages" class="form-control bordered" v-model="categorys.category" />
                                 <datalist id="programmingLanguages">
-                                    <option value="Makanan" id="pil">Makanan</option>
-                                    <option value="Minuman" id="pil">Minuman</option>
-                                    <option value="Permen" id="pil">Permen</option>
-                                    <option value="Ice Cream" id="pil">Ice Cream</option>
+                                    <option value="Makanan"     >Makanan</option>
+                                    <option value="Minuman"     >Minuman</option>
+                                    <option value="Permen"      >Permen</option>
+                                    <option value="Ice Cream"   >Ice Cream</option>
+                                    <option value="Dessert"     >Dessert</option>
                                 </datalist>
                             </div>
                             <div class="form-group px-5 row ">
@@ -48,21 +49,6 @@
     </div>
 </template>
 
-<style>
-datalist {
-  position: absolute;
-  max-height: 20em;
-  border: 0 none;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-#programmingLanguages #pil {
-  font-size: 10px;
-  padding: 0.3em 1em;
-  background-color: rgb(235, 0, 0);
-}
-</style>
 <script>
 import axios from "axios";
 export default {
@@ -107,7 +93,7 @@ export default {
                 .post(url, formData)
                 .then((response) => {
                     if (response.data.success == true) {
-                        alert(response.data.message);
+                        // alert(response.data.message);
                         // this.products.title = "";
                         // this.products.price = "";
                         this.photo = "";
