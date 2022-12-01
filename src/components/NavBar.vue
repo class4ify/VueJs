@@ -19,7 +19,7 @@
                     <a class=" navbar-brand" href="#">
                         <img src="../assets/logo.png" width="50x" height="50px">
                     </a>
-                    <a class="navbar-brand" href="#">Vue.js</a>
+                    <a class="navbar-brand" href="/">Vue.js</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">

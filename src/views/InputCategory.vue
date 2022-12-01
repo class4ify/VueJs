@@ -22,12 +22,13 @@
                             </div> -->
                             <div class="form-group row px-5">
                                 <label class="col-sm-2 col-form-label">Kategori</label>
-                                <select class="form-control" v-model="categorys.category" id="exampleFormControlSelect1">
-                                    <option>Makanan</option>
-                                    <option>Minuman</option>
-                                    <option>Candy</option>
-                                    <option>Dessert</option>
-                                </select>
+                                <input type="text" list="programmingLanguages" class="form-control bordered" v-model="categorys.category" />
+                                <datalist id="programmingLanguages">
+                                    <option value="Makanan" id="pil">Makanan</option>
+                                    <option value="Minuman" id="pil">Minuman</option>
+                                    <option value="Permen" id="pil">Permen</option>
+                                    <option value="Ice Cream" id="pil">Ice Cream</option>
+                                </datalist>
                             </div>
                             <div class="form-group px-5 row ">
                                 <label class="form-label mt-4">Gambar Kategori</label>
@@ -47,10 +48,25 @@
     </div>
 </template>
 
+<style>
+datalist {
+  position: absolute;
+  max-height: 20em;
+  border: 0 none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#programmingLanguages #pil {
+  font-size: 10px;
+  padding: 0.3em 1em;
+  background-color: rgb(235, 0, 0);
+}
+</style>
 <script>
 import axios from "axios";
 export default {
-   
+
     name: "inputcategory",
     data() {
         return {
@@ -59,7 +75,7 @@ export default {
             preview: ''
         };
     },
- 
+
     methods: {
         imgupload(e) {
 
@@ -95,7 +111,7 @@ export default {
                         // this.products.title = "";
                         // this.products.price = "";
                         this.photo = "";
-                        this.categorys.category  = "";
+                        this.categorys.category = "";
                         this.preview = "";
                     }
                 })
@@ -109,4 +125,6 @@ export default {
         },
     },
 };
+
+
 </script>

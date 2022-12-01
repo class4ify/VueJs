@@ -56,12 +56,14 @@ export default{
                 await axios
                     .get(url)
                     .then((response) =>{
-                        // console.log(response);
-                        this.products = response.data.data[0].api_models;
+                        
+                        this.products = response.data.data[0].api_model;
+                        
                     })
                     .catch((error)=>{
                         console.log(error);
                     })
+                    
             },
         async getProduct(){
             let url="http://127.0.0.1:8000/api/crud";
@@ -82,7 +84,7 @@ export default{
                 .delete(url)
                 .then((response)=>{
                     if(response.data.data==200){
-                        alert(response.data.message);
+                        // alert(response.data.message);
                         this.getProduct();
                     }
                 })

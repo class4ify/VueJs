@@ -18,7 +18,7 @@ const routes = [
     component: ListPage
   },
   {
-    path: '/list/:id',
+    path: '/filterlist/:id',
     name: 'filteredlist',
     component: FilteredList
   },
