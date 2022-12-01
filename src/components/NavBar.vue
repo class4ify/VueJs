@@ -16,7 +16,10 @@
         <div id="nav-scroll">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href="#">VUE JS</a>
+                    <a class=" navbar-brand" href="#">
+                        <img src="../assets/logo.png" width="50x" height="50px">
+                    </a>
+                    <a class="navbar-brand" href="#">Vue.js</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -24,7 +27,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ml-auto">
-                            <ul class="navbar-nav me-auto">
+                            <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
                                     <router-link class="nav-link" to="/">Home</router-link>
                                 </li>
@@ -38,7 +41,7 @@
             </nav>
         </div>
     </body>
-    
+
     </html>
 </template>
 <script>
@@ -48,6 +51,16 @@ name: "NavBar"
     
     
 <style>
+body,
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    /* border: 5px solid black; */
+}
+
 #nav-scroll {
     /* position: fixed; */
     top: 0;
@@ -57,9 +70,9 @@ name: "NavBar"
     z-index: 111;
     border-bottom-color: rgba(128, 128, 128, 0.2);
     transition: top 0.3s;
-    text-transform: uppercase;
-    font-weight:600;
-    
+    /* text-transform: uppercase; */
+    font-weight: 600;
+
 }
 
 .nav-link:hover::after {

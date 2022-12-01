@@ -2,7 +2,7 @@
     <div class="container">
         <div class="mt-5">
             <div class="judul1">
-                <h5 class="text-center mb-5">List Product</h5>
+                <h5 class="text-center mb-5">List Product by ID</h5>
             </div>
 
             <!-- <div class="judul2">
@@ -10,7 +10,7 @@
             </div> -->
 
             <div class="row d-flex justify-content-center">
-                <div class="col-sm-3 ml-2 mr-4 mb-4" v-for="(product) in products" :key="product">
+                <div class="col-sm-3 ml-2 mr-4 mb-4" v-for="(product) in products" :key="product.id">
                     <div class="card" style="width: 18rem">
                         <center>
                             <img :src="`http://127.0.0.1:8000/storage/${product.image}`" height="210"
@@ -38,80 +38,58 @@
 
 </template>
 
-<style>
-.judul3 h5 {
-    content: "";
-    display: block;
-    border-bottom: 3px solid gray;
-    width: 15%;
-    margin: auto;
-    padding-bottom: 5px;
-    margin-bottom: -8px;
-}
-
-.judul2 h5 {
-    content: "";
-    display: block;
-    border-bottom: 3px solid gray;
-    width: 15%;
-    margin: auto;
-    padding-bottom: 5px;
-    margin-bottom: -8px;
-}
-
-.judul1 h5 {
-    content: "";
-    display: block;
-    border-bottom: 3px solid gray;
-    width: 15%;
-    margin: auto;
-    padding-bottom: 5px;
-    margin-bottom: -8px;
-}
-</style>
-
 <script>
 import axios from "axios";
-
-export default {
-    data() {
-        return {
+export default{
+    data(){
+        return{
             products: Array,
         };
     },
-    created() {
-        this.getProduct();
+    created(){
+        this.getProductById();
+        // this.getProduct();
     },
-    methods: {
-        async getProduct() {
-            let url = "http://127.0.0.1:8000/api/crud";
+    methods:{
+        async getProductById(){
+                let url = `http://127.0.0.1:8000/api/category/${this.$route.params.id}`;
+                await axios
+                    .get(url)
+                    .then((response) =>{
+                        // console.log(response);
+                        this.products = response.data.data[0].api_models;
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                    })
+            },
+        async getProduct(){
+            let url="http://127.0.0.1:8000/api/crud";
             await axios
-                .get(url)
-                .then((response) => {
-                    this.products = response.data.data;
-                    // console.log(this.products);
-                })
-                .catch((error) => {
-                    // console.log(error);
-                });
-        },
-        async delProduct(id) {
-            let url = `http://127.0.0.1:8000/api/crud/${id}`;
-            await axios
+            .get(url)
+            .then((response) => {
+                this.products=response.data.data;
+                console.log(this.products);
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+            },
+
+            async delProduct(id){
+                let url=`http://127.0.0.1:8000/api/crud/${id}`;
+                await axios
                 .delete(url)
-                .then((response) => {
-                    if (response.data.code == 200) {
+                .then((response)=>{
+                    if(response.data.data==200){
                         alert(response.data.message);
                         this.getProduct();
                     }
                 })
-                .catch((error) => {
-                    // console.log(error);
+                .catch((error) =>{
+                    console.log(error);
                 });
+            },
         },
-    },
-    mounted() {
-        // console.log("product list created");
-    },
-};
+    };
 </script>

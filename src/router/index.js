@@ -3,6 +3,8 @@ import HomePage from '../views/HomePage.vue'
 import ListPage from '../views/ListPage.vue'
 import InputPage from '../views/InputPage.vue'
 import EditPage from '../views/EditPage.vue'
+import InputCategory from '../views/InputCategory.vue'
+import FilteredList from '../views/FilteredList.vue'
 
 const routes = [
   {
@@ -16,6 +18,11 @@ const routes = [
     component: ListPage
   },
   {
+    path: '/list/:id',
+    name: 'filteredlist',
+    component: FilteredList
+  },
+  {
     path: '/add',
     name: 'inputpage',
     component:  InputPage
@@ -24,6 +31,11 @@ const routes = [
     path: '/edit/:id',
     name: 'editpage',
     component:  EditPage
+  },
+  {
+    path: '/addC',
+    name: 'inputcategory',
+    component:  InputCategory
   },
 ]
 
